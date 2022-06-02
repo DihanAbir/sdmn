@@ -26,8 +26,8 @@ export const AuthContextProvider = ({ children }) => {
 	useEffect(() => {
 		if (session) {
 			setUser({
-				name: session.user.name,
-				email: { address: session.user.email },
+				name: session?.user.name,
+				email: { address: session?.user.email },
 			});
 		}
 		if (window) {

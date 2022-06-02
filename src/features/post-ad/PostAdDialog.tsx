@@ -47,9 +47,11 @@ const PostAdDialog = ({ handleClose }) => {
 		}
 		return () => setPageState(PageState.catPage);
 	}, [postCategory, location]);
+
+	console.log('user', user);
 	return (
 		<Fragment>
-			{pageState === PageState.catPage && (
+			{/* {pageState === PageState.catPage && (
 				<PostAdCategories
 					handleClose={handleClose}
 					handlePostCategory={handlePostCategory}
@@ -69,7 +71,8 @@ const PostAdDialog = ({ handleClose }) => {
 						handlePageState={handlePageState}
 					/>
 				</Box>
-			)}
+			)} */}
+			{user?.name ? <p>Dihan abir</p> : <p>Login First</p>}
 		</Fragment>
 	);
 };

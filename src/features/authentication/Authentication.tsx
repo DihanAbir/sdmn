@@ -172,7 +172,7 @@ const Authentication = ({ postAd, defaultPage, handleClose }: Props) => {
 						<Button
 							variant="contained"
 							fullWidth
-							onClick={() => signIn('facebook')}
+							// onClick={() => signIn('facebook')}
 							sx={{
 								justifyContent: 'flex-start',
 								pl: '90px',

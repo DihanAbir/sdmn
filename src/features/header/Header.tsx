@@ -68,6 +68,9 @@ const Header = () => {
 	const { user } = useContext(AuthContext);
 	const [openDialog, setOpenDialog] = useState('');
 	const [tab, setTab] = useState('allAds');
+	// const user = session?.user && session.user.email;
+	// console.log('data', session.user.email);
+
 	const activeSx = (tabName: string, name: string) => {
 		return tabName === name
 			? {
@@ -240,6 +243,7 @@ const Header = () => {
 									return setOpenDialog(DialogId.postAdDialog);
 								}
 								return setOpenDialog(DialogId.postAdDialog);
+								// alert('Done');
 							}}
 							sx={{
 								fontSize: 13,
@@ -270,6 +274,8 @@ const Header = () => {
 						>
 							<ArrowDropDownIcon sx={{ fontSize: 28 }} />
 						</IconButton>
+						<p>{session?.user && session.user.email}</p>
+						<p onClick={() => signOut()}>Logout</p>
 					</Stack>
 				</Toolbar>
 			</AppBar>
@@ -363,14 +369,14 @@ const Header = () => {
 				handleClose={() => setOpenDialog('')}
 				id={DialogId.postAdDialog}
 			>
-				{!user && <PostAdDialog handleClose={() => setOpenDialog('')} />}
-				{/* {!user && (
+				<PostAdDialog handleClose={() => setOpenDialog('')} />
+				{!user && (
 					<Authentication
 						handleClose={() => setOpenDialog('')}
 						postAd={true}
 						defaultPage={'postad'}
 					/>
-				)} */}
+				)}
 			</CustomDialog>
 			<CustomDialog
 				open={openDialog === DialogId.authDialog}
